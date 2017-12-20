@@ -54,8 +54,8 @@ public class UserController {
     	List<User> userList = userService.findByName(requestDto.getName());
         return userList;
     }
- // 每5分钟执行一次
- 		@Scheduled(cron = "0 05 * * * ? ")
+ // 每2分钟执行一次
+ 		@Scheduled(cron = "0 02 * * * ? ")
  		public void timer() {
  			mongoTemplate.dropCollection(User.class);;//删除集合，可传实体类，也可以传名称
  		}
